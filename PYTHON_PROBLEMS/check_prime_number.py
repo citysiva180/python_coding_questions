@@ -1,23 +1,27 @@
-def is_prime(number):
-    if number <= 1:  # Numbers less than 2 are not prime
-        return False
-    if number <= 3:  # 2 and 3 are prime numbers
-        return True
-    if number % 2 == 0 or number % 3 == 0:  # Eliminate multiples of 2 and 3
-        return False
+from math import sqrt
 
-    # Check for factors from 5 to sqrt(number) skipping multiples of 2 and 3
-    i = 5
-    while i * i <= number:
-        if number % i == 0 or number % (i + 2) == 0:
+# Important notes for prime number program
+# 1. On checking the list of values below the numbers sqrt root we test against the values on division has any reminders.
+# 2. As long as the reminder is not zero, the number is considered to be prime. but if the number is divisible any thing other than 1
+# and itself, the number is a consonant number.
+# By gaining the members within the square root list, we identify potential divisors of the number. This way,
+# We get to choose a lower data set to check if the member is prime or not
+
+
+def check_prime_number(n):
+    is_prime_number = False
+    if (n > 1):
+        for number in range(2, int(sqrt(n))+1):  # []
+            if (n % number == 0):
+                is_prime_number = True
+                break
+        if (is_prime_number == False):
+            return True
+        else:
             return False
-        i += 6
-    return True
+    else:
+        return False
 
 
-# Example usage
-num = int(input("Enter a number to check if it's prime: "))
-if is_prime(num):
-    print(f"{num} is a prime number.")
-else:
-    print(f"{num} is not a prime number.")
+output = check_prime_number(1)
+print(output)
