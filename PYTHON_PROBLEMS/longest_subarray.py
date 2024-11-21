@@ -19,8 +19,7 @@ def longest_subarray_with_sum_k(array, array_length, target_sum):
         if difference in prefix_sum_indices:
             # Calculate the subarray length
             subarray_length = index - prefix_sum_indices[difference]
-            longest_subarray_length = max(
-                longest_subarray_length, subarray_length)
+            longest_subarray_length = max(longest_subarray_length, subarray_length)
 
         # Store the first occurrence of the prefix sum in the hashmap
         if prefix_sum not in prefix_sum_indices:
